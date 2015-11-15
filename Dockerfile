@@ -5,12 +5,12 @@ FROM golang:latest
 #Cache dependencies
 RUN go get "github.com/joho/godotenv"
 RUN go get "github.com/streadway/amqp"
-RUN go get "github.com/thethingsnetwork/server-shared"
+RUN go get "github.com/edwinmat/server-shared"
 RUN go get "github.com/jacobsa/crypto/cmac"
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src/github.com/thethingsnetwork/croft
-WORKDIR /go/src/github.com/thethingsnetwork/croft
+ADD . /go/src/github.com/edwinmat/croft
+WORKDIR /go/src/github.com/edwinmat/croft
 
 # Document that the service listens on port 1700
 EXPOSE 1700

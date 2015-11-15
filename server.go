@@ -6,8 +6,8 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/thethingsnetwork/croft/lora"
-	"github.com/thethingsnetwork/server-shared"
+	"github.com/edwinmat/croft/lora"
+	"github.com/edwinmat/server-shared"
 	"log"
 	"net"
 	"time"
@@ -139,6 +139,8 @@ func convertRXPK(gatewayEui []byte, rxpk *lora.RXPK) (*shared.RxPacket, error) {
 		Time:       time.Now(), //rxpk.Time,
 		RawData:    rxpk.Data,
 		Data:       base64.StdEncoding.EncodeToString(payload),
+                Rssi:       &rxpk.Rssi,
+                Snr:        &rxpk.Lsnr,
 	}, nil
 }
 
